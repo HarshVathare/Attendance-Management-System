@@ -226,7 +226,14 @@ function logout() {
     //remove token from localstorage
     localStorage.removeItem("token");
 
-    window.location.href="login.html";
-
-    
+    window.location.href="login.html";    
 }
+
+//Protect to all html file
+document.addEventListener("DOMContentLoaded", function () {
+    const token = localStorage.getItem("token");
+
+    if (!token) {
+        window.location.href = "login.html";
+    }
+});
