@@ -2,19 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Login Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
 </head>
 <body>
+    <h2>Login page ..!</h2>
+    <form onsubmit="login(event)">
+        <input type="username" id="username" placeholder="Enter username"/><br>
+        <input type="password" id="password" placeholder="Enter password"/><br>
+        <button type="submit">Login</button> &nbsp;&nbsp;<a href="register.html" class="link-btn">Create Account</a>
 
-<h2>Login Page</h2>
+    </form>
 
-<form onsubmit="login(event)">
-    <input type="text" id="username" placeholder="Enter username" required><br><br>
-    <input type="password" id="password" placeholder="Enter password" required><br><br>
-    <button type="submit">Login</button>&nbsp;&nbsp;<a href="register.html">register here ..!</a>
-</form>
-
-<script src="script.js"></script>
-
+    <script src="script.js"></script>
 </body>
 </html>

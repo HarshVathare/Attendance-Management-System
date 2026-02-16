@@ -113,8 +113,6 @@ document.getElementById("createForm").addEventListener("submit", async function 
     }
 });
 
-
-
 //fetch All students
 async function loadStudents() {
     const token = localStorage.getItem("token");
@@ -143,14 +141,22 @@ async function loadStudents() {
         list.innerHTML = "";
 
         students.forEach(student => {
-            let li = document.createElement("li");
-            li.innerHTML = `${student.id} - ${student.name} - ${student.email}
-            <button onclick="updateStudent(${student.id})">Update</button>
-            <button onclick="deleteStudent(${student.id})">Delete</button>
-            `;
-            list.appendChild(li);
-        });
+        let row = document.createElement("tr");
 
+        row.innerHTML = `
+        <td data-label="ID">${student.id}</td>
+        <td data-label="Name">${student.name}</td>
+        <td data-label="Email">${student.email}</td>
+        <td data-label="Update">
+            <button class="action-btn update-btn" onclick="updateStudent(${student.id})">Update</button>
+        </td>
+        <td data-label="Delete">
+            <button class="action-btn delete-btn" onclick="deleteStudent(${student.id})">Delete</button>
+        </td>
+        `;
+
+        list.appendChild(row);
+    });
     } catch (error) {
         console.error("Error:", error);
         alert("Server not responding");
@@ -186,7 +192,6 @@ async function deleteStudent(id) {
         alert("Server error");
     }
 }
-
 
 //Update student
 function updateStudent(id) {

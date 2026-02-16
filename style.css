@@ -1,0 +1,231 @@
+/* ===== GOOGLE FONT STYLE FEEL ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea, #764ba2, #6a11cb);
+    background-size: 300% 300%;
+    animation: gradientMove 10s ease infinite;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    color: white;
+}
+
+/* ===== BACKGROUND ANIMATION ===== */
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* ===== NAV ===== */
+nav {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+nav button {
+    background: #ff4f4f;
+    padding: 8px 18px;
+    border-radius: 30px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+nav button:hover {
+    background: #e60000;
+    transform: scale(1.05);
+}
+
+/* ===== CARD DESIGN ===== */
+form {
+    width: 100%;
+    max-width: 450px;
+    padding: 30px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    margin-bottom: 40px;
+    transition: 0.3s ease;
+}
+
+form:hover {
+    transform: translateY(-5px);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+/* ===== INPUTS ===== */
+input {
+    width: 100%;
+    padding: 14px;
+    border-radius: 10px;
+    border: none;
+    margin-bottom: 18px;
+    font-size: 14px;
+    outline: none;
+}
+
+input:focus {
+    box-shadow: 0 0 0 3px rgba(255,255,255,0.4);
+}
+
+/* ===== BUTTON ===== */
+button {
+    width: 100%;
+    padding: 12px;
+    border-radius: 30px;
+    border: none;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+    background: linear-gradient(45deg, #ff7eb3, #ff4f91);
+    color: white;
+    transition: 0.3s ease;
+}
+
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* ===== STUDENT TABLE SECTION ===== */
+.student-container {
+    width: 100%;
+    max-width: 1000px;
+}
+
+/* ===== TABLE ===== */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    color: #333;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+thead {
+    background: linear-gradient(90deg, #667eea, #764ba2);
+    color: white;
+}
+
+th, td {
+    padding: 15px;
+    text-align: center;
+}
+
+tbody tr {
+    transition: 0.3s;
+}
+
+tbody tr:nth-child(even) {
+    background: #f9f9f9;
+}
+
+tbody tr:hover {
+    background: #f1f1ff;
+    transform: scale(1.01);
+}
+
+/* ===== ACTION BUTTONS ===== */
+.action-btn {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    border: none;
+    cursor: pointer;
+}
+
+.update-btn {
+    background: #4CAF50;
+    color: white;
+}
+
+.delete-btn {
+    background: #f44336;
+    color: white;
+}
+
+.update-btn:hover {
+    background: #3e8e41;
+}
+
+.delete-btn:hover {
+    background: #d32f2f;
+}
+
+.link-btn {
+    display: block;
+    text-align: center;
+    padding: 12px;
+    border-radius: 30px;
+    border: 2px solid white;
+    color: white;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.link-btn:hover {
+    background: white;
+    color: #764ba2;
+}
+
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
+
+    body {
+        padding: 20px;
+    }
+
+    form {
+        padding: 20px;
+    }
+
+    table, thead, tbody, th, td, tr {
+        display: block;
+        width: 100%;
+    }
+
+    thead {
+        display: none;
+    }
+
+    tr {
+        margin-bottom: 15px;
+        border-radius: 12px;
+        background: white;
+        padding: 15px;
+    }
+
+    td {
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+    }
+
+    td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 15px;
+        font-weight: bold;
+        text-align: left;
+    }
+}
