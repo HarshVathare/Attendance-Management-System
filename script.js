@@ -38,6 +38,41 @@ async function login(event) {
     }
 }
 
+// Register User
+async function register(event) {
+    event.preventDefault(); // stop form refresh
+
+    let username = document.getElementById("username").value;
+    let password = document.getElementById("password").value;
+
+    const user = {
+        username: username,
+        password: password
+    };
+
+    try {
+        const response = await fetch("http://localhost:8080/api/auth/signup", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(user)
+        });
+
+        if (!response.ok) {
+            alert("Register failed ..!");
+            return;
+        }
+        alert("Register Successfully!");
+
+        window.location.href = "login.html";
+
+    } catch (error) {
+        console.error("Error:", error);
+        alert("Server error");
+    }
+}
+
 //Create student data
 document.getElementById("createForm").addEventListener("submit", async function (event) {
     event.preventDefault(); // prevent page reload
@@ -220,8 +255,7 @@ async function updateStudentData() {
     }
 }
 
-
-
+//logout function
 function logout() {
     //remove token from localstorage
     localStorage.removeItem("token");
