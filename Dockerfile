@@ -1,9 +1,13 @@
-FROM eclipse-temurin
+FROM eclipse-temurin 
 
 WORKDIR /app
 
 COPY . .
 
+# give permission to mvnw
+RUN chmod +x mvnw
+
+# build spring boot jar
 RUN ./mvnw clean package -DskipTests
 
 EXPOSE 8080
